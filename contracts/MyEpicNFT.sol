@@ -21,13 +21,15 @@ contract MyEpicNFT is ERC721URIStorage {
     // A function used by the user to get their NFT
     function makeAnEpicNFT() public {
         // Get current tokenId, stars at 0.
-        uint256 newItemid = _tokenIds.current();
+        uint256 newItemId = _tokenIds.current();
 
         // Mint the NFT to the sender using msg.sender
         _safeMint(msg.sender, newItemId);
 
         // Set the NFT data
-        _setTokenURI(newItemid, "A special edition, one of a kind!");
+        _setTokenURI(newItemId, "A special edition, one of a kind!");
+        console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+
 
         // Incremnt the counter once the next NFT is minted.
         _tokenIds.increment();
