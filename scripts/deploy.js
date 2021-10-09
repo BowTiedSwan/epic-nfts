@@ -9,11 +9,13 @@ const main = async () => {
     let txn = await nftContract.makeAnEpicNFT()
     // Wait fo the NFT to be minted
     await txn.wait();
+    console.log("Minted 1st NFT")
 
     // Mint a second NFT
     txn = await nftContract.makeAnEpicNFT()
     // Wait for minting to complete
     await txn.wait();
+    console.log("Minted 2nd NFT")
 };
 
 
